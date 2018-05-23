@@ -22,6 +22,11 @@ public:
 	Vector3 operator * (float scalar);
 	Vector3 operator / (float scalar);
 
+	friend Vector3 operator + (float scalar, const Vector3& other);
+	friend Vector3 operator - (float scalar, const Vector3& other);
+	friend Vector3 operator * (float scalar, const Vector3& other);
+	friend Vector3 operator / (float scalar, const Vector3& other);
+
 	//creating the operator and equal too vec3 operations
 	Vector3 operator += (const Vector3& other);
 	Vector3 operator -= (const Vector3& other);

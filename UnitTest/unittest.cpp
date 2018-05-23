@@ -176,36 +176,36 @@ bool runUnitTests() {
 	// vector pre-scale
 	v2a = Vector2(13.5f, -48.23f);
 	v2c = 2.482f * v2a;
-	/*v3a = Vector3(13.5f, -48.23f, 862);
+	v3a = Vector3(13.5f, -48.23f, 862);
 	v3c = 0.256f * v3a;
 	v4a = Vector4(13.5f, -48.23f, 862, 0);
 	v4c = 4.89f * v4a;
-*/
+
 	TEST("Vector2 pre-scale", v2c, Vector2(33.5069999695f, -119.706863403f));
-	//TEST("Vector3 pre-scale", v3c, Vector3(3.45600008965f, -12.3468809128f, 220.672012329f));
-	/*TEST("Vector4 pre-scale", v4c, Vector4(66.0149993896f, -235.844696045f, 4215.1796875f, 0));
-*/
-	// vector dot product
-	/*v2a = Vector2(13.5f, -48.23f); v2b = Vector2(5, 3.99f);
+	TEST("Vector3 pre-scale", v3c, Vector3(3.45600008965f, -12.3468809128f, 220.672012329f));
+	TEST("Vector4 pre-scale", v4c, Vector4(66.0149993896f, -235.844696045f, 4215.1796875f, 0));
+
+	//vector dot product
+	v2a = Vector2(13.5f, -48.23f); v2b = Vector2(5, 3.99f);
 	float dot2 = v2a.dot(v2b);
 	v3a = Vector3(13.5f, -48.23f, 862); v3b = Vector3(5, 3.99f, -12);
-	float dot3 = v3a.dot(v3b);*/
-	/*v4a = Vector4(13.5f, -48.23f, 862, 0); v4b = Vector4(5, 3.99f, -12, 1);
-	float dot4 = v4a.dot(v4b);*/
+	float dot3 = v3a.dot(v3b);
+	v4a = Vector4(13.5f, -48.23f, 862, 0); v4b = Vector4(5, 3.99f, -12, 1);
+	float dot4 = v4a.dot(v4b);
 
-//	TEST("Vector2 dot", dot2, -124.937698364f);
-//	TEST("Vector3 dot", dot3, -10468.9375f);
-//	/*TEST("Vector4 dot", dot4, -10468.9375f);
-//*/
-//	// vector cross product
-//	v3a = Vector3(13.5f, -48.23f, 862); v3b = Vector3(5, 3.99f, -12);
-//	v3c = v3a.cross(v3b);
-//	v4a = Vector4(13.5f, -48.23f, 862, 0); v4b = Vector4(5, 3.99f, -12, 1);
-//	v4c = v4a.cross(v4b);
-//
-//	TEST("Vector3 cross", v3c, Vector3(-2860.62011719f, 4472.00000000f, 295.01498413f));
-//	TEST("Vector4 cross", v4c, Vector4(-2860.62011719f, 4472.00000000f, 295.01498413f, 0));
-//
+	TEST("Vector2 dot", dot2, -124.937698364f);
+	TEST("Vector3 dot", dot3, -10468.9375f);
+	TEST("Vector4 dot", dot4, -10468.9375f);
+
+	// vector cross product
+	v3a = Vector3(13.5f, -48.23f, 862); v3b = Vector3(5, 3.99f, -12);
+	v3c = v3a.cross(v3b);
+	v4a = Vector4(13.5f, -48.23f, 862, 0); v4b = Vector4(5, 3.99f, -12, 1);
+	v4c = v4a.cross(v4b);
+
+	TEST("Vector3 cross", v3c, Vector3(-2860.62011719f, 4472.00000000f, 295.01498413f));
+	TEST("Vector4 cross", v4c, Vector4(-2860.62011719f, 4472.00000000f, 295.01498413f, 0));
+
 	// vector magnitude
 	v2a = Vector2(13.5f, -48.23f);
 	float mag2 = v2a.magnitude();

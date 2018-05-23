@@ -4,7 +4,7 @@ class Vector4
 public:
 	union
 	{
-		//struct which holds the x, y and z axis for vec3
+		//struct which holds the x, y, z  and w axis for vec4
 		struct
 		{
 			float m_x, m_y, m_z, m_w;
@@ -20,6 +20,11 @@ public:
 	Vector4 operator - (const Vector4& other);
 	Vector4 operator * (float scalar);
 	Vector4 operator / (float scalar);
+
+	friend Vector4 operator + (float scalar, const Vector4& other);
+	friend Vector4 operator - (float scalar, const Vector4& other);
+	friend Vector4 operator * (float scalar, const Vector4& other);
+	friend Vector4 operator / (float scalar, const Vector4& other);
 
 	//creating the operator and equal too vec3 operations
 	Vector4 operator += (const Vector4& other);

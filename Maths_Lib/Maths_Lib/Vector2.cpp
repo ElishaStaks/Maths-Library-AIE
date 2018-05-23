@@ -13,6 +13,11 @@ Vector2::Vector2(float x, float y) : m_x(x), m_y(y)
 
 }
 
+Vector2::~Vector2()
+{
+}
+
+
 //Addition operator for vec2
 Vector2 Vector2::operator+(const Vector2& other)
 {
@@ -23,6 +28,18 @@ Vector2 Vector2::operator+(const Vector2& other)
 Vector2 Vector2::operator-(const Vector2 & other)
 {
 	return { m_x - other.m_x, m_y - other.m_y };
+}
+
+//Multiplication operator for vec2
+Vector2 Vector2::operator*(float scalar)
+{
+	return { m_x * scalar, m_y * scalar };
+}
+
+//Division operator for vec2
+Vector2 Vector2::operator/(float scalar)
+{
+	return { m_x / scalar, m_y / scalar };
 }
 
 //Addition and equal to operator for vec2
@@ -46,23 +63,21 @@ Vector2 Vector2::operator*=(float scalar)
 	return *this;
 }
 
-//Multiplication operator for vec2
-Vector2 Vector2::operator*(float scalar)
-{
-	return { m_x * scalar, m_y * scalar };
-}
-
-//Division operator for vec2
-Vector2 Vector2::operator/(float scalar)
-{
-	return { m_x / scalar, m_y / scalar };
-}
-
 //Division and equal to operator for vec2
 Vector2 Vector2::operator/=(float scalar)
 {
 	m_x /= scalar, m_y /= scalar;
 	return *this;
+}
+
+float Vector2::operator[](int index)
+{
+	return 0.0f;
+}
+
+Vector2::operator float* ()
+{
+	return data;
 }
 
 //Making the vector a unit length of 1
@@ -94,21 +109,40 @@ float Vector2::distance(const Vector2 & other) const
 	return sqrt(diffX * diffX + diffY * diffY);
 }
 
+//dot
 float Vector2::dot(const Vector2& other) const
 {
 	return m_x * other.m_x + m_y * other.m_y;
 }
 
+//cross
 Vector2 Vector2::cross(const Vector2 & other) const
 {
 	return { m_y * other.m_x - m_x * other.m_y, m_x * other.m_y - m_y * other.m_x };
 }
 
-Vector2::~Vector2()
+///////////////////////////////////////////////////////////
+//friend + operator
+Vector2 operator+(float scalar, const Vector2 & other)
 {
+	return Vector2 {other.m_x + scalar, other.m_y + scalar};
 }
 
+//friend - operator
+Vector2 operator-(float scalar, const Vector2 & other)
+{
+	return Vector2 {other.m_x - scalar, other.m_y - scalar};
+}
+
+//friend * operator
 Vector2 operator*(float scalar, const Vector2 & other)
 {
-	return { other.m_x * scalar,  other.m_y * scalar };
+	return Vector2 { other.m_x * scalar, other.m_y * scalar};
 }
+
+//friend / operator
+Vector2 operator/(float scalar, const Vector2 & other)
+{
+	return Vector2 {other.m_x / scalar, other.m_y / scalar};
+}
+/////////////////////////////////////////////////////////////

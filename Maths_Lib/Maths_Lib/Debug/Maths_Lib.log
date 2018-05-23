@@ -1,19 +1,5 @@
-﻿  Vector4.cpp
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector4.cpp(75): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector4.cpp(82): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector4.cpp(98): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  Vector3.cpp
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector3.cpp(73): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector3.cpp(79): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector3.cpp(86): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector3.cpp(103): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  Vector2.cpp
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector2.cpp(72): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector2.cpp(79): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\s181333\desktop\unittest\maths_lib\maths_lib\vector2.cpp(94): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  Maths_Lib.vcxproj -> C:\Users\s181333\Desktop\UnitTest\dependencies\Debug\Maths_Lib.lib
-  C:\Users\s181333\Desktop\UnitTest\Maths_Lib\Maths_Lib\\Vector2.h
-  C:\Users\s181333\Desktop\UnitTest\Maths_Lib\Maths_Lib\\Vector3.h
-  C:\Users\s181333\Desktop\UnitTest\Maths_Lib\Maths_Lib\\Vector4.h
+﻿  Maths_Lib.vcxproj -> C:\MathsLibs-master\dependencies\Debug\Maths_Lib.lib
+  C:\MathsLibs-master\Maths_Lib\Maths_Lib\\Vector2.h
+  C:\MathsLibs-master\Maths_Lib\Maths_Lib\\Vector3.h
+  C:\MathsLibs-master\Maths_Lib\Maths_Lib\\Vector4.h
           3 file(s) copied.

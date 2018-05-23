@@ -95,15 +95,44 @@ float Vector4::distance(const Vector4 & other) const
 	float diffX = m_x - other.m_x;
 	float diffY = m_y - other.m_y;
 	float diffZ = m_z - other.m_z;
-	return sqrt(diffX * diffX + diffY * diffY + diffZ * diffZ);
+	float diffW = m_w - other.m_w;
+	return sqrt(diffX * diffX + diffY * diffY + diffZ * diffZ + diffW * diffW);
 }
 
+//dot
 float Vector4::dot(const Vector4 & other) const
 {
-	return m_x * other.m_x + m_y * other.m_y + m_z * other.m_z;
+	return m_x * other.m_x + m_y * other.m_y + m_z * other.m_z + m_w * other.m_w;
 }
 
+//cross
 Vector4 Vector4::cross(const Vector4 & other) const
 {
 	return { m_y * other.m_z - m_z * other.m_y, m_z * other.m_x - m_x * other.m_z, m_x * other.m_y - m_y * other.m_x, 0};
 }
+
+///////////////////////////////////////////////////////////
+//friend + operator
+Vector4 operator+(float scalar, const Vector4 & other)
+{
+	return Vector4 {other.m_x + scalar, other.m_y + scalar, other.m_z + scalar, other.m_w + scalar};
+}
+
+//friend - operator
+Vector4 operator-(float scalar, const Vector4 & other)
+{
+	return Vector4 {other.m_x - scalar, other.m_y - scalar, other.m_z - scalar, other.m_w - scalar};
+}
+
+//friend * operator
+Vector4 operator*(float scalar, const Vector4 & other)
+{
+	return Vector4 {other.m_x * scalar, other.m_y * scalar, other.m_z * scalar, other.m_w * scalar};
+}
+
+//friend / operator
+Vector4 operator/(float scalar, const Vector4 & other)
+{
+	return Vector4 {other.m_x / scalar, other.m_y / scalar, other.m_z / scalar, other.m_w / scalar};
+}
+/////////////////////////////////////////////////////////////

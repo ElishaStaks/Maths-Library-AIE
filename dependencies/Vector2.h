@@ -14,6 +14,7 @@ public:
 
 	Vector2();
 	Vector2(float x, float y);
+	~Vector2();
 
 	//creating the operations for vec2
 	Vector2 operator + (const Vector2& other);
@@ -46,5 +47,4 @@ public:
 
 
 
-	~Vector2();
 };

@@ -10,10 +10,13 @@ public:
 		{
 			float m_x, m_y;
 		};
+		//if the data index 0 is called it calls the x value
+		float data[2];
 	};
 
 	Vector2();
 	Vector2(float x, float y);
+	~Vector2();
 
 	//creating the operations for vec2
 	Vector2 operator + (const Vector2& other);
@@ -32,6 +35,13 @@ public:
 	Vector2 operator *= (float scalar);
 	Vector2 operator /= (float scalar);
 
+	
+	float operator [] (int index);
+	//converts int to float
+	//eg int a = 10, float b = 20.0f
+	//a = (int)f
+	explicit operator float* ();
+
 	//scales the magnitude to length 1 function
 	void normalise();
 	//length of the vector function
@@ -46,5 +56,4 @@ public:
 
 
 
-	~Vector2();
 };

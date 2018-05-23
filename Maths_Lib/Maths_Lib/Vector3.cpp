@@ -14,6 +14,12 @@ Vector3::Vector3(float x, float y, float z) : m_x(x), m_y(y), m_z(z)
 
 }
 
+Vector3::~Vector3()
+{
+
+}
+
+
 //Addition operator for vec3
 Vector3 Vector3::operator+(const Vector3& other)
 {
@@ -103,18 +109,41 @@ float Vector3::distance(const Vector3 & other) const
 	return sqrt(diffX * diffX + diffY * diffY + diffZ * diffZ);
 }
 
+//dot
 float Vector3::dot(const Vector3 & other) const
 {
 	return m_x * other.m_x + m_y * other.m_y + m_z * other.m_z;
 }
 
+//cross
 Vector3 Vector3::cross(const Vector3 & other) const
 {
 	return { m_y * other.m_z - m_z * other.m_y, m_z * other.m_x - m_x * other.m_z, m_x * other.m_y - m_y * other.m_x };
 }
 
-Vector3::~Vector3()
+///////////////////////////////////////////////////////////
+//friend + operator
+Vector3 operator+(float scalar, const Vector3 & other)
 {
-
+	return Vector3 { other.m_x + scalar, other.m_y + scalar, other.m_z + scalar};
 }
+
+//friend - operator
+Vector3 operator-(float scalar, const Vector3 & other)
+{
+	return Vector3 {other.m_x - scalar, other.m_y - scalar, other.m_z - scalar};
+}
+
+//friend * operator
+Vector3 operator*(float scalar, const Vector3 & other)
+{
+	return Vector3 {other.m_x * scalar, other.m_y * scalar, other.m_z * scalar};
+}
+
+//friend / operator
+Vector3 operator/(float scalar, const Vector3 & other)
+{
+	return Vector3 {other.m_x / scalar, other.m_y / scalar, other.m_z / scalar};
+}
+/////////////////////////////////////////////////////////////
 
