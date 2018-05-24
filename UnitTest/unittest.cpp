@@ -4,6 +4,9 @@
 #include <Vector2.h>
 #include <Vector3.h>
 #include <Vector4.h>
+#include "Matrix2.h"
+#include "Matrix3.h"
+#include "Matrix4.h"
 
 
 #ifndef NO_DEFAULT_STREAM_OPERATOR
@@ -17,7 +20,7 @@
 	std::ostream& operator << (std::ostream& os, Vector4& rhs) {
 		float* a = (float*)&rhs;
 		os << std::setprecision(12) << a[0] << "," << std::setprecision(12) << a[1] << "," << std::setprecision(12) << a[2] << "," << std::setprecision(12) << a[3]; return os; }
-	/*std::ostream& operator << (std::ostream& os, Matrix2& rhs) {
+	std::ostream& operator << (std::ostream& os, Matrix2& rhs) {
 		float* a = (float*)rhs;
 		for (int i = 0; i < 4; ++i) {
 			os << std::setprecision(12) << a[i];
@@ -43,7 +46,7 @@
 				os << ",";
 		}
 		return os;
-	}*/
+	}
 
 #endif
 
@@ -85,35 +88,35 @@ bool compare( Vector4& A,  Vector4& B, float tolerance = DEFAULT_TOLERANCE) {
 	return true;
 }
 
-//bool compare( Matrix2& A,  Matrix2& B, float tolerance = DEFAULT_TOLERANCE) {
-//	 float* a = ( float*)A;
-//	 float* b = ( float*)B;
-//	if (abs(a[0] - b[0]) > tolerance || abs(a[1] - b[1]) > tolerance ||
-//		abs(a[2] - b[2]) > tolerance || abs(a[3] - b[3]) > tolerance)
-//		return false;
-//	return true;
-//}
-//
-//bool compare( Matrix3& A,  Matrix3& B, float tolerance = DEFAULT_TOLERANCE) {
-//	 float* a = ( float*)A;
-//	 float* b = ( float*)B;
-//	if (abs(a[0] - b[0]) > tolerance || abs(a[1] - b[1]) > tolerance || abs(a[2] - b[2]) > tolerance ||
-//		abs(a[3] - b[3]) > tolerance || abs(a[4] - b[4]) > tolerance || abs(a[5] - b[5]) > tolerance ||
-//		abs(a[6] - b[6]) > tolerance || abs(a[7] - b[7]) > tolerance || abs(a[8] - b[8]) > tolerance)
-//		return false;
-//	return true;
-//}
-//
-//bool compare( Matrix4& A,  Matrix4& B, float tolerance = DEFAULT_TOLERANCE) {
-//	 float* a = ( float*)A;
-//	 float* b = ( float*)B;
-//	if (abs(a[0] - b[0]) > tolerance || abs(a[1] - b[1]) > tolerance || abs(a[2] - b[2]) > tolerance || abs(a[3] - b[3]) > tolerance ||
-//		abs(a[4] - b[4]) > tolerance || abs(a[5] - b[5]) > tolerance || abs(a[6] - b[6]) > tolerance || abs(a[7] - b[7]) > tolerance ||
-//		abs(a[8] - b[8]) > tolerance || abs(a[9] - b[9]) > tolerance || abs(a[10] - b[10]) > tolerance || abs(a[11] - b[11]) > tolerance ||
-//		abs(a[12] - b[12]) > tolerance || abs(a[13] - b[13]) > tolerance || abs(a[14] - b[14]) > tolerance || abs(a[15] - b[15]) > tolerance)
-//		return false;
-//	return true;
-//}
+bool compare( Matrix2& A,  Matrix2& B, float tolerance = DEFAULT_TOLERANCE) {
+	 float* a = ( float*)A;
+	 float* b = ( float*)B;
+	if (abs(a[0] - b[0]) > tolerance || abs(a[1] - b[1]) > tolerance ||
+		abs(a[2] - b[2]) > tolerance || abs(a[3] - b[3]) > tolerance)
+		return false;
+	return true;
+}
+
+bool compare( Matrix3& A,  Matrix3& B, float tolerance = DEFAULT_TOLERANCE) {
+	 float* a = ( float*)A;
+	 float* b = ( float*)B;
+	if (abs(a[0] - b[0]) > tolerance || abs(a[1] - b[1]) > tolerance || abs(a[2] - b[2]) > tolerance ||
+		abs(a[3] - b[3]) > tolerance || abs(a[4] - b[4]) > tolerance || abs(a[5] - b[5]) > tolerance ||
+		abs(a[6] - b[6]) > tolerance || abs(a[7] - b[7]) > tolerance || abs(a[8] - b[8]) > tolerance)
+		return false;
+	return true;
+}
+
+bool compare( Matrix4& A,  Matrix4& B, float tolerance = DEFAULT_TOLERANCE) {
+	 float* a = ( float*)A;
+	 float* b = ( float*)B;
+	if (abs(a[0] - b[0]) > tolerance || abs(a[1] - b[1]) > tolerance || abs(a[2] - b[2]) > tolerance || abs(a[3] - b[3]) > tolerance ||
+		abs(a[4] - b[4]) > tolerance || abs(a[5] - b[5]) > tolerance || abs(a[6] - b[6]) > tolerance || abs(a[7] - b[7]) > tolerance ||
+		abs(a[8] - b[8]) > tolerance || abs(a[9] - b[9]) > tolerance || abs(a[10] - b[10]) > tolerance || abs(a[11] - b[11]) > tolerance ||
+		abs(a[12] - b[12]) > tolerance || abs(a[13] - b[13]) > tolerance || abs(a[14] - b[14]) > tolerance || abs(a[15] - b[15]) > tolerance)
+		return false;
+	return true;
+}
 
 template <typename T>
 bool TestFunc(const char* msg, T& a, T& b) {

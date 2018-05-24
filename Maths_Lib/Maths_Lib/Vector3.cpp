@@ -19,7 +19,6 @@ Vector3::~Vector3()
 
 }
 
-
 //Addition operator for vec3
 Vector3 Vector3::operator+(const Vector3& other)
 {
@@ -97,7 +96,6 @@ float Vector3::magnitudeSqr() const
 {
 	{return (m_x * m_x + m_y * m_y + m_z * m_z); };
 }
-
 
 //Checks the distance between the two points of the vector
 //Then checks the magnitude of the vector

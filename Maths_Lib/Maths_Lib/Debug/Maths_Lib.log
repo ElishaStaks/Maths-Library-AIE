@@ -1,5 +1,25 @@
-﻿  Maths_Lib.vcxproj -> C:\MathsLibs-master\dependencies\Debug\Maths_Lib.lib
+﻿  Vector4.cpp
+c:\mathslibs-master\maths_lib\maths_lib\vector4.cpp(75): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\mathslibs-master\maths_lib\maths_lib\vector4.cpp(82): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\mathslibs-master\maths_lib\maths_lib\vector4.cpp(99): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Vector3.cpp
+c:\mathslibs-master\maths_lib\maths_lib\vector3.cpp(78): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\mathslibs-master\maths_lib\maths_lib\vector3.cpp(84): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\mathslibs-master\maths_lib\maths_lib\vector3.cpp(91): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\mathslibs-master\maths_lib\maths_lib\vector3.cpp(107): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Vector2.cpp
+c:\mathslibs-master\maths_lib\maths_lib\vector2.cpp(87): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\mathslibs-master\maths_lib\maths_lib\vector2.cpp(94): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\mathslibs-master\maths_lib\maths_lib\vector2.cpp(109): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Matrix4.cpp
+  Matrix3.cpp
+  Matrix2.cpp
+  Generating Code...
+  Maths_Lib.vcxproj -> C:\MathsLibs-master\dependencies\Debug\Maths_Lib.lib
+  C:\MathsLibs-master\Maths_Lib\Maths_Lib\\Matrix2.h
+  C:\MathsLibs-master\Maths_Lib\Maths_Lib\\Matrix3.h
+  C:\MathsLibs-master\Maths_Lib\Maths_Lib\\Matrix4.h
   C:\MathsLibs-master\Maths_Lib\Maths_Lib\\Vector2.h
   C:\MathsLibs-master\Maths_Lib\Maths_Lib\\Vector3.h
   C:\MathsLibs-master\Maths_Lib\Maths_Lib\\Vector4.h
-          3 file(s) copied.
+          6 file(s) copied.
