@@ -19,8 +19,8 @@ Matrix2::Matrix2(float a_x, float a_y, float b_x, float b_y)
 	//matrix index |0| = a_x     matrix index |1| = a_y     | 0  1 |
 	//matrix index |2| = b_x     matrix index |3| = b_y     | 2  3 |
 	m[0] = a_x;
-	m[1] = a_y;
-	m[2] = b_x;
+	m[1] = b_x;
+	m[2] = a_y;
 	m[3] = b_y;
 
 
@@ -65,36 +65,13 @@ void Matrix2::scale(const Vector2 & v)
 	*this = *this * m;
 }
 
-///////////////////////////////////////////////////////////////////////////// ROTATION /////////////////////////////////////////
-//Sets the rotate for the X axis
-void Matrix2::setRotateX(float radians)
+/////////////////////////////////////////////////////////////////// ROTATION //////////////////////////////////////////////////////
+//Sets the rotation for 2d
+void Matrix2::setRotate(float radians)
 {
-	//leave X axis and elements unchanged
-	*this = { 1, 0, 
-		      0, cosf(radians) };
+	*this = { cosf(radians), sinf(radians),
+			  -sinf(radians), cosf(radians)};
 
-}
-
-//Sets the rotate for the Y axis
-void Matrix2::setRotateY(float radians)
-{
-	*this = { cosf(radians), 0,
-		      0, 1 };
-}
-
-//You add the value at which you would like to rotate the X axis in this function
-void Matrix2::rotateX(float radians)
-{
-	Matrix2 m;
-	m.setRotateX(radians);
-	*this = *this * m;
-}
-
-void Matrix2::rotateY(float radians)
-{
-	Matrix2 m;
-	m.setRotateY(radians);
-	*this = *this * m;
 }
 /////////////////////////////////////////////////////////////////// ROTATION //////////////////////////////////////////////////////
 
@@ -117,19 +94,21 @@ Matrix2 Matrix2::Transpose()
  //This multiplies the matrix itself 
 Matrix2 Matrix2::operator*(const Matrix2 & a_mat) const
 {
-	return Matrix2(	m[0] * a_mat.m[0] + m[1] * a_mat.m[2],            //=====MATRIX MULTIPLICATION 2X2======//           Step 1: Multiply the first matrix row by the whole second matrix   
-		            m[0] * a_mat.m[1] + m[3] * a_mat.m[2],            // | m[0]  m[1] |     | a_m[0]  a_m[1] |           Step 2: Multiply the second matrix row by the whole second matrix 
-		            m[1] * a_mat.m[3] + m[2] * a_mat.m[0],            // | m[2]  m[3] |  *  | a_m[2]  a_m[3] |           
-		            m[2] * a_mat.m[1] + m[3] * a_mat.m[3]);           
-	                                                                  // | 0x0 + 1x2 + 0x1 + 1x3 + | <--- first row
-	                                                                  // | 2x0 + 3x2 + 2x1 + 3x3   | <--- second row
-}
+	return Matrix2(m[0] * a_mat.m[0] + m[2] * a_mat.m[1],            //===== MATRIX MULTIPLICATION 2X2 ======//           Step 1: Multiply the first matrix row by the whole second matrix   
+		           m[0] * a_mat.m[2] + m[2] * a_mat.m[3],            // | m[0]  m[2] |     | a_m[0]  a_m[2] |             Step 2: Multiply the second matrix row by the whole second matrix 
+		           m[1] * a_mat.m[0] + m[3] * a_mat.m[1],            // | m[1]  m[3] |  *  | a_m[1]  a_m[3] |           
+		           m[1] * a_mat.m[2] + m[3] * a_mat.m[3]);
+}																														  
+		                                                              //   *Refer to the multiplication table on the left and follow how the table below works*
+	                                                                  //              *Also refer to your exercise book with heaps of examples*
+	                                                                  // | 0x0 + 2x1 + 0x2 + 2x3 + | <--- first row       *Row(right)*  
+	                                                                  // | 1x0 + 3x1 + 1x2 + 3x3   | <--- second row	  *Column(down)*            
 
 //Multiplying a matrix with a vector
 Vector2 Matrix2::operator*(const Vector2 & a_vec) const
 {
-	return Vector2(m[0],
-		           m[1]);
+	return Vector2(	m[0] * a_vec.m_x + m[1] * a_vec.m_y,
+					m[2] * a_vec.m_x + m[3] * a_vec.m_y);
 }
 
 //deconstructor

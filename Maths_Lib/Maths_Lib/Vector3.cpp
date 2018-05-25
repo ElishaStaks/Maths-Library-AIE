@@ -31,27 +31,6 @@ Vector3 Vector3::operator-(const Vector3 & other)
 	return { m_x - other.m_x, m_y - other.m_y, m_z - other.m_z };
 }
 
-//Addition and equal to operator for vec3
-Vector3 Vector3::operator+=(const Vector3 & other)
-{
-	m_x + other.m_x, m_y + other.m_y, m_z + other.m_z;
-	return *this;
-}
-
-//Subtraction and equal to operator for vec3
-Vector3 Vector3::operator-=(const Vector3& other)
-{
-	m_x -= other.m_x, m_y -= other.m_y, m_z -= other.m_z;
-	return *this;
-}
-
-//Multiplication and equal too operator for vec3
-Vector3 Vector3::operator*=(float scalar)
-{
-	m_x *= scalar, m_y *= scalar, m_z *= scalar;
-	return *this;
-}
-
 //Multiplication operator for vec3
 Vector3 Vector3::operator*(float scalar)
 {
@@ -64,8 +43,39 @@ Vector3 Vector3::operator/(float scalar)
 	return { m_x / scalar, m_y / scalar, m_z / scalar };
 }
 
+Vector3::operator float*()
+{
+	return m;
+}
+
+float Vector3::operator[](int index)
+{
+	return m[index];
+}
+
+//Addition and equal to operator for vec3
+Vector3& Vector3::operator+=(const Vector3 & other)
+{
+	m_x + other.m_x, m_y + other.m_y, m_z + other.m_z;
+	return *this;
+}
+
+//Subtraction and equal to operator for vec3
+Vector3& Vector3::operator-=(const Vector3& other)
+{
+	m_x -= other.m_x, m_y -= other.m_y, m_z -= other.m_z;
+	return *this;
+}
+
+//Multiplication and equal too operator for vec3
+Vector3& Vector3::operator*=(float scalar)
+{
+	m_x *= scalar, m_y *= scalar, m_z *= scalar;
+	return *this;
+}
+
 //Division and equal to operator for vec3
-Vector3 Vector3::operator/=(float scalar)
+Vector3& Vector3::operator/=(float scalar)
 {
 	m_x /= scalar, m_y /= scalar, m_z /= scalar;
 	return *this;
@@ -79,6 +89,8 @@ void Vector3::normalise()
 	m_x /= mag, m_y /= mag, m_z /= mag;
 }
 
+//Making the vector a unit length of 1
+//making the magnitude equal to 1
 Vector3 Vector3::normalised()
 {
 	float mag = sqrt(m_x * m_x + m_y * m_y + m_z * m_z);

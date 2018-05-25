@@ -10,6 +10,7 @@ public:
 		{
 			float m_x, m_y, m_z;
 		};
+		float m[3];
 	};
 
 	Vector3();
@@ -22,16 +23,23 @@ public:
 	Vector3 operator * (float scalar);
 	Vector3 operator / (float scalar);
 
+	//friend operators works like inheritance
 	friend Vector3 operator + (float scalar, const Vector3& other);
 	friend Vector3 operator - (float scalar, const Vector3& other);
 	friend Vector3 operator * (float scalar, const Vector3& other);
 	friend Vector3 operator / (float scalar, const Vector3& other);
 
+	//converts int to float
+	//eg int a = 10, float b = 20.0f
+	//a = (int)f
+	explicit operator float* ();
+	float operator [] (int index);
+
 	//creating the operator and equal too vec3 operations
-	Vector3 operator += (const Vector3& other);
-	Vector3 operator -= (const Vector3& other);
-	Vector3 operator *= (float scalar);
-	Vector3 operator /= (float scalar);
+	Vector3& operator += (const Vector3& other);
+	Vector3& operator -= (const Vector3& other);
+	Vector3& operator *= (float scalar);
+	Vector3& operator /= (float scalar);
 
 	//scales the magnitude to length 1 function
 	void normalise();

@@ -43,28 +43,28 @@ Vector2 Vector2::operator/(float scalar)
 }
 
 //Addition and equal to operator for vec2
-Vector2 Vector2::operator+=(const Vector2 & other)
+Vector2& Vector2::operator+=(const Vector2 & other)
 {
 	m_x + other.m_x, m_y + other.m_y;
 	return *this;
 }
 
 //Subtraction and equal to operator for vec2
-Vector2 Vector2::operator-=(const Vector2& other)
+Vector2& Vector2::operator-=(const Vector2& other)
 {
 	m_x -= other.m_x, m_y -= other.m_y;
 	return *this;
 }
 
 //Multiplication and equal to operator for vec2
-Vector2 Vector2::operator*=(float scalar)
+Vector2& Vector2::operator*=(float scalar)
 {
 	m_x * scalar, m_y * scalar;
 	return *this;
 }
 
 //Division and equal to operator for vec2
-Vector2 Vector2::operator/=(float scalar)
+Vector2& Vector2::operator/=(float scalar)
 {
 	m_x /= scalar, m_y /= scalar;
 	return *this;
@@ -109,13 +109,13 @@ float Vector2::distance(const Vector2 & other) const
 	return sqrt(diffX * diffX + diffY * diffY);
 }
 
-//dot
+//dot projects a vector on another vector
 float Vector2::dot(const Vector2& other) const
 {
 	return m_x * other.m_x + m_y * other.m_y;
 }
 
-//cross
+//cross product between two vectors that result in a third vector that is perpendicular to both
 Vector2 Vector2::cross(const Vector2 & other) const
 {
 	return { m_y * other.m_x - m_x * other.m_y, m_x * other.m_y - m_y * other.m_x };

@@ -24,16 +24,17 @@ public:
 	Vector2 operator * (float scalar);
 	Vector2 operator / (float scalar);
 
+	//friend operators works like inheritance
 	friend Vector2 operator + (float scalar, const Vector2& other);
 	friend Vector2 operator - (float scalar, const Vector2& other);
 	friend Vector2 operator * (float scalar, const Vector2& other);
 	friend Vector2 operator / (float scalar, const Vector2& other);
 
 	//creating the operator and equal too vec3 operations
-	Vector2 operator += (const Vector2& other);
-	Vector2 operator -= (const Vector2& other);
-	Vector2 operator *= (float scalar);
-	Vector2 operator /= (float scalar);
+	Vector2& operator += (const Vector2& other);
+	Vector2& operator -= (const Vector2& other);
+	Vector2& operator *= (float scalar);
+	Vector2& operator /= (float scalar);
 
 	
 	float operator [] (int index);
@@ -50,8 +51,9 @@ public:
 	float magnitudeSqr()const;
 	//The distance between the points of the vector function
 	float distance(const Vector2& other) const;
-
+	//dot function
 	float dot(const Vector2& other)const;
+	//cross function
 	Vector2 cross(const Vector2& other)const;
 
 

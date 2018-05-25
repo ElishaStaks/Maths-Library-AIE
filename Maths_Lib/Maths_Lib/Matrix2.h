@@ -18,6 +18,7 @@ public:
 	//Copy constructor that takes in the the positions of the 2x2 matrix
 	Matrix2(float a_x, float a_y, float b_x,
 		float b_y);
+
 	//Copy constructor that allows us to set the axis's
 	Matrix2(const Matrix2 & other);
 	//Float operator that allows us to return the index in the matrix
@@ -28,14 +29,8 @@ public:
 	void setScaled(const Vector2& v);
 	//scales the game object which takes in a vector3
 	void scale(const Vector2& v);
-
-	////////////////////////////////////////
-	void setRotateX(float radians);
-	void setRotateY(float radians);
-
-	void rotateX(float radians);
-	void rotateY(float radians);
-	////////////////////////////////////////
+	//rotation
+	void setRotate(float radians);
 
 	//Identitiy fucntion which can return the matrix2
 	Matrix2 Identity();

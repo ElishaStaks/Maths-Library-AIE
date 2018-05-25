@@ -9,12 +9,12 @@ Vector4::Vector4()
 //Constructor which takes in the x, y, z and w axis
 Vector4::Vector4(float x, float y, float z, float w) : m_x(x), m_y(y), m_z(z), m_w(w)
 {
-
+	
 }
 
 Vector4::~Vector4()
 {
-
+	 
 }
 
 //Addition operator for vec4
@@ -41,31 +41,41 @@ Vector4 Vector4::operator/(float scalar)
 	return { m_x / scalar, m_y / scalar, m_z / scalar, m_w / scalar };
 }
 //Addition and equal to operator for vec4
-Vector4 Vector4::operator+=(const Vector4& other)
+Vector4& Vector4::operator+=(const Vector4& other)
 {
-	m_x + other.m_x, m_y + other.m_y, m_z + other.m_z, m_w + other.m_w;
+	m_x += other.m_x, m_y += other.m_y, m_z += other.m_z, m_w += other.m_w;
 	return *this;
 }
 
 //Subtraction and equal to operator for vec4
-Vector4 Vector4::operator-=(const Vector4& other)
+Vector4& Vector4::operator-=(const Vector4& other)
 {
 	m_x -= other.m_x, m_y -= other.m_y, m_z -= other.m_z, m_w -= other.m_w;
 	return *this;
 }
 
 //Multiplication and equal too operator for vec4
-Vector4 Vector4::operator*=(float scalar)
+Vector4& Vector4::operator*=(float scalar)
 {
 	m_x *= scalar, m_y *= scalar, m_z *= scalar, m_w *= scalar;
 	return *this;
 }
 
 //Division and equal to operator for vec4
-Vector4 Vector4::operator/=(float scalar)
+Vector4& Vector4::operator/=(float scalar)
 {
 	m_x /= scalar, m_y /= scalar, m_z /= scalar, m_w /= scalar;
 	return *this;
+}
+
+Vector4::operator float*()
+{
+	return m;
+}
+
+float Vector4::operator[](int index)
+{
+	return m[index];
 }
 
 //Making the vector a unit length of 1
